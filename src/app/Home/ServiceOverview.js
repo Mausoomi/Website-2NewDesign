@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { GiArchiveResearch } from "react-icons/gi";
 import { Playfair_Display } from "next/font/google";
+import { HoverEffect } from "../../components/ui/card-hover-effect";
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["700"],
@@ -14,31 +15,37 @@ function ServiceOverview() {
     {
       icon: <GiArchiveResearch />,
       title: "Consulting & Research",
-      para: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
-      navigateTo: "/Home/ConsultingResearch",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+      link: "/Home/ConsultingResearch",
     },
     {
       icon: <GiArchiveResearch />,
       title: "Software Development & IT Solutions",
-      para: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
 
-      navigateTo: "/Home/SoftwareIt",
+      link: "/Home/SoftwareIt",
     },
     {
       icon: <GiArchiveResearch />,
       title: "Training, Education & Job Guidance",
-      para: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+      link: "",
     },
     {
       icon: <GiArchiveResearch />,
       title: "Marketing & Sales Consultancy",
-      para: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+      link: "",
     },
   ];
 
   return (
     <div className="commonContainer py-10 ">
-      <div className="flex flex-wrap  gap-10 justify-center ">
+      {/* <div className="flex flex-wrap  gap-10 justify-center ">
         {servicesData.map((item, index) => (
           <div
             key={index}
@@ -63,9 +70,61 @@ function ServiceOverview() {
             </div>
           </div>
         ))}
+      </div> */}
+      <div className=" flex justify-center flex-col items-center gap-4 ">
+        <h1 className="md:w-[70%] w-full bg-clip-text text-transparent text-center bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
+          Streamlined for easy management
+        </h1>
+        <p className="  max-w-xl mx-auto text-sm md:text-lg text-neutral-700 dark:text-neutral-400 text-center">
+          Enjoy customizable lists, team work tools, and smart tracking all in
+          one place. Set tasks, get reminders, and see your progress simply and
+          quickly.
+        </p>
+      </div>
+
+      <div className="max-w-5xl mx-auto px-8">
+        <HoverEffect items={servicesData} />
       </div>
     </div>
   );
 }
 
 export default ServiceOverview;
+export const projects = [
+  {
+    title: "Stripe",
+    description:
+      "A technology company that builds economic infrastructure for the internet.",
+    link: "https://stripe.com",
+  },
+  {
+    title: "Netflix",
+    description:
+      "A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
+    link: "https://netflix.com",
+  },
+  {
+    title: "Google",
+    description:
+      "A multinational technology company that specializes in Internet-related services and products.",
+    link: "https://google.com",
+  },
+  {
+    title: "Meta",
+    description:
+      "A technology company that focuses on building products that advance Facebook's mission of bringing the world closer together.",
+    link: "https://meta.com",
+  },
+  {
+    title: "Amazon",
+    description:
+      "A multinational technology company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence.",
+    link: "https://amazon.com",
+  },
+  {
+    title: "Microsoft",
+    description:
+      "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
+    link: "https://microsoft.com",
+  },
+];

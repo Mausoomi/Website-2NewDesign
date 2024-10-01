@@ -10,14 +10,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      
-      <body
-        className={` antialiased`}
-      >
-        <Navbar/>
+    // <html lang="en" className="dark">
+    <html lang="en" className="dark">
+      <body className={` antialiased`}>
+        <Navbar />
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );

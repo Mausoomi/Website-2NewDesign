@@ -38,7 +38,7 @@ function FAQPage() {
               <h1
                 className={`md:text-5xl text-white text-2xl font-extrabold text-center pb-14 ${playfair.className}`}
               >
-                We are here to answer all your questions.
+                We're here to answer all your questions.
               </h1>
 
               {/* <div className="flex  gap-2 animate-bounce pt-2">
@@ -109,13 +109,13 @@ function FAQPage() {
                   <AccordionTrigger>Is it styled?</AccordionTrigger>
                   <AccordionContent>
                     Yes. It comes with default styles that matches the other
-                    components aesthetic.
+                    components&apos; aesthetic.
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-3">
                   <AccordionTrigger>Is it animated?</AccordionTrigger>
                   <AccordionContent>
-                    Yes. It is animated by default, but you can disable it
+                    Yes. It&apos;s animated by default, but you can disable it
                     if you prefer.
                   </AccordionContent>
                 </AccordionItem>
@@ -148,13 +148,13 @@ function FAQPage() {
                   <AccordionTrigger>Is it styled?</AccordionTrigger>
                   <AccordionContent>
                     Yes. It comes with default styles that matches the other
-                    components aesthetic.
+                    components&apos; aesthetic.
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-3">
                   <AccordionTrigger>Is it animated?</AccordionTrigger>
                   <AccordionContent>
-                    Yes. It is animated by default, but you can disable it
+                    Yes. It&apos;s animated by default, but you can disable it
                     if you prefer.
                   </AccordionContent>
                 </AccordionItem>
@@ -187,13 +187,13 @@ function FAQPage() {
                   <AccordionTrigger>Is it styled?</AccordionTrigger>
                   <AccordionContent>
                     Yes. It comes with default styles that matches the other
-                    components aesthetic.
+                    components&apos; aesthetic.
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-3">
                   <AccordionTrigger>Is it animated?</AccordionTrigger>
                   <AccordionContent>
-                    Yes. It is animated by default, but you can disable it
+                    Yes. It&apos;s animated by default, but you can disable it
                     if you prefer.
                   </AccordionContent>
                 </AccordionItem>

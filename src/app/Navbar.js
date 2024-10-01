@@ -12,6 +12,7 @@ import { IoLogoYoutube } from "react-icons/io";
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { NavbarDemo } from "@/app/NavBarMenu";
 
 function NavBar() {
   const [showSideBar, setShowSideBar] = useState(false);
@@ -51,51 +52,10 @@ function NavBar() {
   });
   return (
     <>
-
-
       <div
         className={` relative md:block hidden shadow-lg shadow-black-500/50 bg-[rgb(16,29,45)]   `}
       >
-        <div className="flex items-center md:justify-between py-4 commonContainer flex-wrap  justify-center">
-          <div className="md:w-[10%] w-[30%] py-2 logo">
-            <IoLogoDropbox className="text-[rgb(33,116,234)] text-xl" />
-          </div>
-          <nav className=" px-4">
-            <ul className="flex justify-evenly items-center gap-4 ">
-              {navItem.map((item, index) => (
-                <li key={index} className="navBox">
-                  <Link href={item.Link}>
-                    <p
-                      className={`navItem transition-transform duration-300 ease-in-out font-semibold text-[rgb(148,163,184)] ${
-                        pathname === item.Link ? "underline" : "hover:scale-110"
-                      }`}
-                    >
-                      {item.item}
-                    </p>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-          <div className="socialLinks ">
-            {/* <ul className="flex justify-evenly items-center gap-6 text-[20px] ">
-              <li>
-                <AiFillInstagram className="transition-transform duration-300 ease-in-out hover:scale-110" />
-              </li>
-              <li>
-                <FaFacebookSquare className="transition-transform duration-300 ease-in-out hover:scale-110" />
-              </li>
-              <li>
-                <IoLogoYoutube className="transition-transform duration-300 ease-in-out hover:scale-110" />
-              </li>
-            </ul> */}
-          </div>
-          <div className="signInBtn">
-            <button className="  font-semibold  border-[1px] border-gray-800 rounded px-4 py-1 text-[rgb(148,163,184)] md:text-[15px] text-[12px]  transition-transform duration-300 ease-in-out hover:scale-110 ">
-              Sign in
-            </button>
-          </div>
-        </div>
+        <NavbarDemo />
       </div>
 
       <div className="md:hidden flex justify-between items-start  py-2 px-4 ">
