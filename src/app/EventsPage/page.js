@@ -29,7 +29,7 @@ function EventsPage() {
   return (
     <div>
       <div>
-        <Image src={eventimg} />
+        <Image src={eventimg} alt="eventimage" />
       </div>
       <div className="-mt-20">
         <div className="commonContainer bg-[rgb(138,138,147,0.21)]   drop-shadow-2xl shadow-md rounded-lg p-10 gap-8 flex flex-col">
@@ -39,7 +39,7 @@ function EventsPage() {
               className="bg-white    drop-shadow-2xl shadow-md rounded-lg p-8 flex  gap-4"
             >
               <div>
-                <Image src={item.img} width={200} />
+                <Image src={item.img} width={200} alt="image" />
               </div>
               <div className=" flex flex-col items-start gap-4">
                 <h1 className=" font-bold">{item.title}</h1>
