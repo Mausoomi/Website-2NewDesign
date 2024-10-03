@@ -38,7 +38,7 @@ function FAQPage() {
               <h1
                 className={`md:text-5xl text-white text-2xl font-extrabold text-center pb-14 ${playfair.className}`}
               >
-                We're here to answer all your questions.
+                We are here to answer all your questions.
               </h1>
 
               {/* <div className="flex  gap-2 animate-bounce pt-2">
