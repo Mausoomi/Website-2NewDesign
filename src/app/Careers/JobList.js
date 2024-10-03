@@ -1,11 +1,10 @@
-
 "use client";
 import Image from "next/image";
 import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 
- function JobList() {
+function JobList() {
   const [active, setActive] = useState(null);
   const ref = useRef(null);
   const id = useId();
@@ -40,10 +39,10 @@ import { useOutsideClick } from "@/hooks/use-outside-click";
           <p className="text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
             We believe in fostering a vibrant and inclusive workplace where
             creativity thrives and talent shines. At [Company Name], every idea
-            counts, and every voice is heard. Whether you’re a seasoned
-            professional or just starting out, you’ll have opportunities to
+            counts, and every voice is heard. Whether you&apos;re a seasoned
+            professional or just starting out, you&apos;ll have opportunities to
             grow, collaborate, and make an impact. Come be a part of a team
-            that’s passionate about innovation and committed to making a
+            that&apos;s passionate about innovation and committed to making a
             difference!
           </p>
         </div>
@@ -186,7 +185,7 @@ import { useOutsideClick } from "@/hooks/use-outside-click";
     </>
   );
 }
-export default JobList
+export default JobList;
 export const CloseIcon = () => {
   return (
     <motion.svg
@@ -320,15 +319,15 @@ const cards = [
     content: () => {
       return (
         <p>
-          "Aawarapan", a Bollywood movie starring Emraan Hashmi, is renowned for
+          Aawarapan, a Bollywood movie starring Emraan Hashmi, is renowned for
           its intense storyline and powerful performances. Directed by Mohit
           Suri, the film has become a significant work in the Indian film
           industry. <br /> <br />
           The movie explores themes of love, redemption, and sacrifice,
           capturing the essence of human emotions and relationships. With a
-          gripping narrative and memorable music, "Aawarapan" has garnered a
+          gripping narrative and memorable music, Aawarapan has garnered a
           massive fan following both in India and abroad, solidifying Emraan
-          Hashmi's status as a versatile actor.
+          Hashmi&aposs status as a versatile actor.
         </p>
       );
     },
