@@ -11,7 +11,8 @@ import topBanner from "../../../public/bannerTop.jpg";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import TopImg from "../../../public/cube-helix 1.png"
+import TopImg from "../../../public/cube-helix 1.png";
+import { Testimonials } from "./Testimonials";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -19,26 +20,30 @@ const playfair = Playfair_Display({
 });
 
 function HomePage() {
-   const imageRef = useRef(null);
+  const imageRef = useRef(null);
   gsap.registerPlugin(useGSAP);
 
   useGSAP(() => {
     var tl = gsap.timeline();
-    tl.from(".hding", { y: -30, duration: 1, opacity: 0, delay: 0.5, scale:0.2 });
+    tl.from(".hding", {
+      y: -30,
+      duration: 1,
+      opacity: 0,
+      delay: 0.5,
+      scale: 0.2,
+    });
     tl.from(".paraTop", { x: -50, duration: 1, opacity: 0, delay: 0.5 });
-
 
     gsap.from(".btn1", { y: 50, duration: 1, opacity: 0, delay: 0.5 });
     gsap.from(".btn2", { y: 50, duration: 1, opacity: 0, delay: 0.5 });
 
-     gsap.to(imageRef.current, {
-       rotate: 360,
-       duration: 15,
-       repeat: -1, 
-       ease: "linear",
-     });
+    gsap.to(imageRef.current, {
+      rotate: 360,
+      duration: 15,
+      repeat: -1,
+      ease: "linear",
+    });
   });
-
 
   return (
     <>
@@ -104,8 +109,12 @@ function HomePage() {
       <div>
         <ServiceOverview />
       </div>
-      <div >
+      <div>
         <BenefitSection />
+      </div>
+
+      <div>
+        <Testimonials />
       </div>
       <div>
         <ContactForm />
@@ -115,8 +124,3 @@ function HomePage() {
 }
 
 export default HomePage;
-
-
-
-
-

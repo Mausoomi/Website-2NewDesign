@@ -1,28 +1,44 @@
 import React from "react";
 import { useId } from "react";
+import { BackgroundBeams } from "../ui/background-beams";
+
+
 
 export default function FeaturesSectionDemo() {
   return (
-    (<div className="py-20 lg:py-40">
-      <div
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 md:gap-2 max-w-7xl mx-auto">
-        {grid.map((feature) => (
-          <div
-            key={feature.title}
-            className="relative bg-gradient-to-b dark:from-neutral-900 from-neutral-100 dark:to-neutral-950 to-white p-6 rounded-3xl overflow-hidden">
-            <Grid size={20} />
-            <p
-              className="text-base font-bold text-neutral-800 dark:text-white relative z-20">
-              {feature.title}
-            </p>
-            <p
-              className="text-neutral-600 dark:text-neutral-400 mt-4 text-base font-normal relative z-20">
-              {feature.description}
-            </p>
-          </div>
-        ))}
+    <div className="  h-auto w-full rounded-md bg-[#262626] relative flex flex-col items-center justify-center antialiased">
+      <div className="px-8 commonContainer pt-20 lg:pt-40">
+        <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
+          Packed with thousands of features
+        </h4>
+
+        <p className="text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
+          From Image generation to video generation, Everything AI has APIs for
+          literally everything. It can even create this website copy for you.
+        </p>
       </div>
-    </div>)
+
+      <div className="py-20 lg:py-40 commonContainer">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 md:gap-2 max-w-7xl mx-auto">
+          {grid.map((feature) => (
+            <div
+              key={feature.title}
+              className="relative bg-gradient-to-b dark:from-neutral-900 from-neutral-100 dark:to-neutral-950 to-white p-6 rounded-3xl overflow-hidden"
+            >
+              <Grid size={20} />
+              <p className="text-base font-bold text-neutral-800 dark:text-white relative z-20">
+                {feature.title}
+              </p>
+              <p className="text-neutral-600 dark:text-neutral-400 mt-4 text-base font-normal relative z-20">
+                {feature.description}
+              </p>
+            </div>
+          ))}
+        </div>
+        {/* <BackgroundBeams/> */}
+      </div>
+      <BackgroundBeams />
+    </div>
   );
 }
 

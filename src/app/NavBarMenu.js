@@ -20,7 +20,7 @@ function Navbar({ className }) {
   const [active, setActive] = useState(null);
     const navItem = [
       { item: "Home", Link: "/" },
-      { item: "About us", Link: "/AboutUs" },
+      // { item: "About us", Link: "/AboutUs" },
       { item: "Careers", Link: "/Careers" },
       { item: "Media", Link: "/Media" },
       { item: "Downloads", Link: "/Downloads" },
