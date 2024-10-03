@@ -4,10 +4,13 @@ import { useRouter } from "next/navigation";
 import { GiArchiveResearch } from "react-icons/gi";
 import { Playfair_Display } from "next/font/google";
 import { HoverEffect } from "../../components/ui/card-hover-effect";
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["700"],
-});
+import React, { useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger); // Register ScrollTrigger with gsap
+
 
 function ServiceOverview() {
   const router = useRouter();
@@ -42,9 +45,30 @@ function ServiceOverview() {
       link: "",
     },
   ];
+  
+
+    useGSAP(() => {
+    var tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".box-1", // Element that triggers the animation
+        start: "top 80%", // Trigger when the top of .box-1 is 75% from the top of the viewport
+        end: "bottom 25%", 
+        toggleActions: "play none none none", 
+      },
+    });
+      
+       tl.from(".servicesHd", {
+         y: -30,
+         duration: 1,
+         opacity: 0,
+         delay: 0.5,
+         scale: 0.2,
+       });
+       tl.from(".paraServices", { x: -50, duration: 1, opacity: 0, delay: 0.5 });
+    });
 
   return (
-    <div className="commonContainer py-10 ">
+    <div className="commonContainer py-10 box-1 ">
       {/* <div className="flex flex-wrap  gap-10 justify-center ">
         {servicesData.map((item, index) => (
           <div
@@ -72,10 +96,10 @@ function ServiceOverview() {
         ))}
       </div> */}
       <div className=" flex justify-center flex-col items-center gap-4 ">
-        <h1 className="md:w-[70%] w-full bg-clip-text text-transparent text-center bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
+        <h1 className=" servicesHd md:w-[70%] w-full bg-clip-text text-transparent text-center bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
           Streamlined for easy management
         </h1>
-        <p className="  max-w-xl mx-auto text-sm md:text-lg text-neutral-700 dark:text-neutral-400 text-center">
+        <p className=" paraServices max-w-xl mx-auto text-sm md:text-lg text-neutral-700 dark:text-neutral-400 text-center">
           Enjoy customizable lists, team work tools, and smart tracking all in
           one place. Set tasks, get reminders, and see your progress simply and
           quickly.

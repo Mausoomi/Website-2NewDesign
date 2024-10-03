@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { HeroHighlight, Highlight } from "../../components/ui/hero-highlight";
 import JobList from "./JobList";
+import Gallery from "./Gallery";
 function Careers() {
   return (
     <>
@@ -34,6 +35,7 @@ function Careers() {
     
 
       <JobList />
+      <Gallery/>
     </>
   );
 }

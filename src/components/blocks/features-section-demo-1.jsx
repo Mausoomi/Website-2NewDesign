@@ -2,17 +2,41 @@ import React from "react";
 import { useId } from "react";
 import { BackgroundBeams } from "../ui/background-beams";
 
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 
 export default function FeaturesSectionDemo() {
+
+   useGSAP(() => {
+     var tl = gsap.timeline({
+       scrollTrigger: {
+         trigger: ".box-2", // Element that triggers the animation
+         start: "top 90%", 
+         end: "bottom 20%",
+         toggleActions: "play none none none",
+       },
+     });
+
+     tl.from(".FeaturesHd", {
+       y: -30,
+       duration: 1,
+       opacity: 0,
+       delay: 0.5,
+       scale: 0.2,
+     });
+     tl.from(".paraFeatures", { x: -50, duration: 1, opacity: 0, delay: 0.5 });
+   });
+
   return (
-    <div className="  h-auto w-full rounded-md bg-[#262626] relative flex flex-col items-center justify-center antialiased">
+    <div className=" box-2  h-auto w-full rounded-md bg-[#262626] relative flex flex-col items-center justify-center antialiased">
       <div className="px-8 commonContainer pt-20 lg:pt-40">
-        <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
+        <h4 className=" FeaturesHd text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
           Packed with thousands of features
         </h4>
 
-        <p className="text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
+        <p className=" paraFeatures text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
           From Image generation to video generation, Everything AI has APIs for
           literally everything. It can even create this website copy for you.
         </p>

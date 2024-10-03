@@ -221,8 +221,8 @@ export const CloseIcon = () => {
 
 const cards = [
   {
-    description: "FrontEnd Developer",
-    title: "Summertime Sadness",
+    description: "On-Site",
+    title: "FrontEnd Developer",
     src: "https://assets.aceternity.com/demos/lana-del-rey.jpeg",
     ctaText: "Apply Now",
     ctaLink: "https://ui.aceternity.com/templates",
@@ -244,8 +244,8 @@ const cards = [
     },
   },
   {
-    description: "Babbu Maan",
-    title: "Mitran Di Chhatri",
+    description: "Remote",
+    title: "FrontEnd Developer",
     src: "https://assets.aceternity.com/demos/babbu-maan.jpeg",
     ctaText: "Apply Now",
     ctaLink: "https://ui.aceternity.com/templates",
@@ -267,8 +267,8 @@ const cards = [
   },
 
   {
-    description: "Metallica",
-    title: "For Whom The Bell Tolls",
+    description: "On-Site",
+    title: "FrontEnd Developer",
     src: "https://assets.aceternity.com/demos/metallica.jpeg",
     ctaText: "Apply Now",
     ctaLink: "https://ui.aceternity.com/templates",
@@ -289,8 +289,8 @@ const cards = [
     },
   },
   {
-    description: "Led Zeppelin",
-    title: "Stairway To Heaven",
+    description: "On-Site",
+    title: "FrontEnd Developer",
     src: "https://assets.aceternity.com/demos/led-zeppelin.jpeg",
     ctaText: "Apply Now",
     ctaLink: "https://ui.aceternity.com/templates",
