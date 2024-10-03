@@ -1,5 +1,5 @@
 
-import Footer from "./Footer";
+// import Footer from "./Footer";
 import "./globals.css";
 import Navbar from "./Navbar";
 
@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
       <body className={` antialiased`}>
         <Navbar />
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );
