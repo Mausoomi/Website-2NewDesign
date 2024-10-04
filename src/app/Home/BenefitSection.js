@@ -3,7 +3,6 @@ import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import { Playfair_Display } from "next/font/google";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { IconBrandYoutubeFilled } from "@tabler/icons-react";

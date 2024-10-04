@@ -68,7 +68,7 @@ function ServiceOverview() {
     });
 
   return (
-    <div className="commonContainer py-10 box-1 ">
+    <div className="commonContainer  box-1 ">
       {/* <div className="flex flex-wrap  gap-10 justify-center ">
         {servicesData.map((item, index) => (
           <div
@@ -106,7 +106,7 @@ function ServiceOverview() {
         </p>
       </div>
 
-      <div className="max-w-5xl mx-auto px-8">
+      <div className="max-w-5xl mx-auto md:px-8">
         <HoverEffect items={servicesData} />
       </div>
     </div>

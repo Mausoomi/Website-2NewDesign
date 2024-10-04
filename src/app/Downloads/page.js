@@ -19,7 +19,7 @@ import {
 import { Input } from "@/components/ui/input";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["700"],
@@ -31,7 +31,10 @@ function Downloads() {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
+  const downloadBtn = useRef(null);
+  const scrollToSection = (ref) => {
+    ref.current.scrollIntoView({ behavior: "smooth" });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
@@ -66,11 +69,11 @@ function Downloads() {
 
   return (
     <div className="commonContainer">
-      <div className="  bg-[rgb(16,29,45)]  rounded-b-[40px] py-20 px-10">
-        <div className="flex justify-between ">
-          <div className="md:w-[60%] w-[100%] flex flex-col justify-center items-center  gap-4">
+      <div className="  bg-[rgb(16,29,45)]  rounded-b-[40px] md:pb-20 pb-4 md:pt-44 pt-20 md:px-10 px-6">
+        <div className="flex justify-between lg:flex-row flex-col sm:gap-4 items-center ">
+          <div className="lg:w-[60%] w-[100%] flex flex-col justify-center items-center  gap-4">
             <h1
-              className={`md:text-5xl text-white text-2xl font-extrabold ${playfair.className}`}
+              className={`md:text-5xl text-white text-2xl text-center font-extrabold ${playfair.className}`}
             >
               Access Useful Resources !
             </h1>
@@ -78,7 +81,10 @@ function Downloads() {
               Our landing page template works on all devices, so you only have
               to set it up once, and get beautiful results forever.
             </p>
-            <div className="flex  gap-2 animate-bounce pt-2">
+            <div
+              className="flex  gap-2 animate-bounce pt-2"
+              onClick={() => scrollToSection(downloadBtn)}
+            >
               <Button variant="outline">
                 Download Now <FaArrowDown className="pl-1" />
               </Button>
@@ -89,26 +95,30 @@ function Downloads() {
             <Image
               src={careerPAge}
               alt="career Banner "
-              className=" rounded-[40px] "
+              className=" rounded-[30px] "
             />
           </div>
         </div>
       </div>
 
-      <section>
-        <div className="flex items-center justify-center flex-col py-10">
+      <section ref={downloadBtn}>
+        <div className="flex items-center md:justify-center justify-between flex-col py-10">
           {careerData.map((item, index) => (
             <div
               key={index}
-              className="flex justify-between w-[80%] border-t py-4  items-center "
+              className="flex justify-between w-[80%] border-t py-4  items-center"
             >
-              <div className=" flex  items-center justify-start gap-4 ">
-                <div className="w-fit">
-                  <FaFileDownload className=" text-2xl" />
-                </div>
-                <div>
-                  <h1 className=" font-semibold text-xl">{item.title}</h1>
-                  <p className="text-[rgb(101,103,106)] text-sm ">{item.jd}</p>
+              <div className=" flex  items-center justify-start gap-4 md:flex-row flex-col  ">
+                <div className=" flex items-center gap-4  ">
+                  <div className="w-fit">
+                    <FaFileDownload className=" text-2xl" />
+                  </div>
+                  <div>
+                    <h1 className=" font-semibold text-xl">{item.title}</h1>
+                    <p className="text-[rgb(101,103,106)] text-sm ">
+                      {item.jd}
+                    </p>
+                  </div>
                 </div>
 
                 <Dialog>

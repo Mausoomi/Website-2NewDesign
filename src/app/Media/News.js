@@ -1,87 +1,162 @@
-"use client";
-
-import * as React from "react";
-// import { useRouter } from "next/router";
-// import { useEffect, useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import blog1 from "../../../public/blog-2.jpg";
-import blog2 from "../../../public/blog-2.jpg";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+"use client"
 import Image from "next/image";
+import { FollowerPointerCard } from "../../components/ui/following-pointer";
 
- function News() {
-  const blogData = [
-    {
-      image: blog1,
-      title: "1across time zones, best tools for 2024",
-      para: "Working with a distributed team located across multiple time zones can be a logistical nightmare. Trying to calculate time differences, find meeting times that work for everyone, and avoid scheduling conflicts is enough to make even the most organized professionals pull their hair out. If you've ever found yourself drowning in a sea of world clocks, time zone converters, and endless email threads just to schedule an internal meeting, you're not alone. Coordinating schedules across time zones is one of the biggest challenges remote teams face. The good news? There are some incredibly helpful free tools out there designed to make converting times across time zones and scheduling meetings for remote teams a breeze. From simple time zone checkers to full-fledged meeting scheduling platforms, these tools can streamline the process and save you hours of frustration.",
-    },
-    {
-      image: blog2,
-      title: "2across time zones, best tools for 2024",
-      para: "Working with a distributed team located across multiple time zones can be a logistical nightmare. Trying to calculate time differences, find meeting times that work for everyone, and avoid scheduling conflicts is enough to make even the most organized professionals pull their hair out. If you've ever found yourself drowning in a sea of world clocks, time zone converters, and endless email threads just to schedule an internal meeting, you're not alone. Coordinating schedules across time zones is one of the biggest challenges remote teams face. The good news? There are some incredibly helpful free tools out there designed to make converting times across time zones and scheduling meetings for remote teams a breeze. From simple time zone checkers to full-fledged meeting scheduling platforms, these tools can streamline the process and save you hours of frustration.",
-    },
-    {
-      image: blog1,
-      title: "3across time zones, best tools for 2024",
-      para: "Working with a distributed team located across multiple time zones can be a logistical nightmare. Trying to calculate time differences, find meeting times that work for everyone, and avoid scheduling conflicts is enough to make even the most organized professionals pull their hair out. If you've ever found yourself drowning in a sea of world clocks, time zone converters, and endless email threads just to schedule an internal meeting, you're not alone. Coordinating schedules across time zones is one of the biggest challenges remote teams face. The good news? There are some incredibly helpful free tools out there designed to make converting times across time zones and scheduling meetings for remote teams a breeze. From simple time zone checkers to full-fledged meeting scheduling platforms, these tools can streamline the process and save you hours of frustration.",
-    },
-    {
-      image: blog2,
-      title: "4across time zones, best tools for 2024",
-      para: "Working with a distributed team located across multiple time zones can be a logistical nightmare. Trying to calculate time differences, find meeting times that work for everyone, and avoid scheduling conflicts is enough to make even the most organized professionals pull their hair out. If you've ever found yourself drowning in a sea of world clocks, time zone converters, and endless email threads just to schedule an internal meeting, you're not alone. Coordinating schedules across time zones is one of the biggest challenges remote teams face. The good news? There are some incredibly helpful free tools out there designed to make converting times across time zones and scheduling meetings for remote teams a breeze. From simple time zone checkers to full-fledged meeting scheduling platforms, these tools can streamline the process and save you hours of frustration.",
-    },
-    {
-      image: blog1,
-      title: "5across time zones, best tools for 2024",
-      para: "Working with a distributed team located across multiple time zones can be a logistical nightmare. Trying to calculate time differences, find meeting times that work for everyone, and avoid scheduling conflicts is enough to make even the most organized professionals pull their hair out. If you've ever found yourself drowning in a sea of world clocks, time zone converters, and endless email threads just to schedule an internal meeting, you're not alone. Coordinating schedules across time zones is one of the biggest challenges remote teams face. The good news? There are some incredibly helpful free tools out there designed to make converting times across time zones and scheduling meetings for remote teams a breeze. From simple time zone checkers to full-fledged meeting scheduling platforms, these tools can streamline the process and save you hours of frustration.",
-    },
-  ];
-
+function News() {
   return (
-    <div className="flex justify-center bg-yellow py-10 rounded-lg  bg-[rgb(250,241,123,0.25)] mb-10">
-      <Carousel className="md:w-[90%] w-[80%]  flex justify-center">
-        <CarouselContent className=" flex justify-center ">
-          {blogData.map((item, index) => (
-            <CarouselItem
-              key={index}
-              className="md:basis-2/6 basis-full  "
-              onClick={() => handleBlogClick(item)}
-            >
-              <div className="p-1">
-                <Card>
-                  <div>
-                    <Image
-                      src={item.image}
-                      alt="blogImage"
-                      className="rounded-t-lg "
-                    />
-                  </div>
-                  <CardContent className="flex ">
-                    <span className="md:text-2xl font-semibold text-xl ">
-                      {item.title}
-                    </span>
-                  </CardContent>
-                  <CardContent className="flex ">
-                    <span className="font-medium md:text-lg text-sm ">
-                      sub title
-                    </span>
-                  </CardContent>
-                </Card>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto md:auto-rows-[20rem]">
+      {NewsData.map((item, index) => (
+        <div className="w-70 mx-auto" key={index}>
+          <FollowerPointerCard
+            title={
+              <TitleComponent title={item.author} avatar={item.authorAvatar} />
+            }
+          >
+            <div className="relative overflow-hidden h-full rounded-2xl transition duration-200 group bg-white hover:shadow-xl border border-zinc-100">
+              <div className="w-full aspect-w-16 aspect-h-10 bg-gray-100 rounded-tr-lg rounded-tl-lg overflow-hidden xl:aspect-w-16 xl:aspect-h-10 relative">
+                <Image
+                  src={item.image}
+                  alt="thumbnail"
+                  layout="fill"
+                  objectFit="cover"
+                  className={`group-hover:scale-95 group-hover:rounded-2xl transform object-cover transition duration-200 `}
+                />
               </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
+              <div className=" p-4">
+                <h2 className="font-bold my-4 text-lg text-zinc-700">
+                  {item.title}
+                </h2>
+                <h2 className="font-normal my-4 text-sm text-zinc-500">
+                  {item.description}
+                </h2>
+                <div className="flex flex-row justify-between items-center mt-10">
+                  <span className="text-sm text-gray-500">{item.date}</span>
+                  <div className="relative z-10 px-6 py-2 bg-black text-white font-bold rounded-xl block text-xs">
+                    Read More
+                  </div>
+                </div>
+              </div>
+            </div>
+          </FollowerPointerCard>
+        </div>
+      ))}
     </div>
   );
 }
+
+
 export default News;
+
+const NewsData = [
+  {
+    slug: "amazing-tailwindcss-grid-layouts",
+    author: "Manu Arora",
+    date: "28th March, 2023",
+    title: "Amazing Tailwindcss Grid Layout Examples",
+    description:
+      "Grids are cool, but Tailwindcss grids are cooler. In this article, we will learn how to create amazing Grid layouts with Tailwindcs grid and React.",
+    image:
+      "https://images.unsplash.com/photo-1544077960-604201fe74bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80",
+    authorAvatar:
+      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
+  },
+  {
+    slug: "amazing-tailwindcss-grid-layouts",
+    author: "Manu Arora",
+    date: "28th March, 2023",
+    title: "Amazing Tailwindcss Grid Layout Examples",
+    description:
+      "Grids are cool, but Tailwindcss grids are cooler. In this article, we will learn how to create amazing Grid layouts with Tailwindcs grid and React.",
+    image:
+      "https://images.unsplash.com/photo-1544077960-604201fe74bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80",
+    authorAvatar:
+      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
+  },
+  {
+    slug: "amazing-tailwindcss-grid-layouts",
+    author: "Manu Arora",
+    date: "28th March, 2023",
+    title: "Amazing Tailwindcss Grid Layout Examples",
+    description:
+      "Grids are cool, but Tailwindcss grids are cooler. In this article, we will learn how to create amazing Grid layouts with Tailwindcs grid and React.",
+    image:
+      "https://images.unsplash.com/photo-1544077960-604201fe74bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80",
+    authorAvatar:
+      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
+  },
+  {
+    slug: "amazing-tailwindcss-grid-layouts",
+    author: "Manu Arora",
+    date: "28th March, 2023",
+    title: "Amazing Tailwindcss Grid Layout Examples",
+    description:
+      "Grids are cool, but Tailwindcss grids are cooler. In this article, we will learn how to create amazing Grid layouts with Tailwindcs grid and React.",
+    image:
+      "https://images.unsplash.com/photo-1544077960-604201fe74bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80",
+    authorAvatar:
+      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
+  },
+  {
+    slug: "amazing-tailwindcss-grid-layouts",
+    author: "Manu Arora",
+    date: "28th March, 2023",
+    title: "Amazing Tailwindcss Grid Layout Examples",
+    description:
+      "Grids are cool, but Tailwindcss grids are cooler. In this article, we will learn how to create amazing Grid layouts with Tailwindcs grid and React.",
+    image:
+      "https://images.unsplash.com/photo-1544077960-604201fe74bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80",
+    authorAvatar:
+      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
+  },
+  {
+    slug: "amazing-tailwindcss-grid-layouts",
+    author: "Manu Arora",
+    date: "28th March, 2023",
+    title: "Amazing Tailwindcss Grid Layout Examples",
+    description:
+      "Grids are cool, but Tailwindcss grids are cooler. In this article, we will learn how to create amazing Grid layouts with Tailwindcs grid and React.",
+    image:
+      "https://images.unsplash.com/photo-1544077960-604201fe74bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80",
+    authorAvatar:
+      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
+  },
+  {
+    slug: "amazing-tailwindcss-grid-layouts",
+    author: "Manu Arora",
+    date: "28th March, 2023",
+    title: "Amazing Tailwindcss Grid Layout Examples",
+    description:
+      "Grids are cool, but Tailwindcss grids are cooler. In this article, we will learn how to create amazing Grid layouts with Tailwindcs grid and React.",
+    image:
+      "https://images.unsplash.com/photo-1544077960-604201fe74bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80",
+    authorAvatar:
+      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
+  },
+  {
+    slug: "amazing-tailwindcss-grid-layouts",
+    author: "Manu Arora",
+    date: "28th March, 2023",
+    title: "Amazing Tailwindcss Grid Layout Examples",
+    description:
+      "Grids are cool, but Tailwindcss grids are cooler. In this article, we will learn how to create amazing Grid layouts with Tailwindcs grid and React.",
+    image:
+      "https://images.unsplash.com/photo-1544077960-604201fe74bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80",
+    authorAvatar:
+      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
+  },
+
+];
+
+
+const TitleComponent = ({ title, avatar }) => (
+  <div className="flex space-x-2 items-center">
+    <Image
+      src={avatar}
+      height="20"
+      width="20"
+      alt="thumbnail"
+      className="rounded-full border-2 border-white"
+    />
+    <p>{title}</p>
+  </div>
+);

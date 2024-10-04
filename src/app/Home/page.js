@@ -33,7 +33,6 @@ function HomePage() {
       scale: 0.2,
     });
     tl.from(".paraTop", { x: -50, duration: 1, opacity: 0, delay: 0.5 });
-
     gsap.from(".btn1", { y: 50, duration: 1, opacity: 0, delay: 0.5 });
     gsap.from(".btn2", { y: 50, duration: 1, opacity: 0, delay: 0.5 });
 

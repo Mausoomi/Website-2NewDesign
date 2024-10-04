@@ -30,7 +30,7 @@ function JobList() {
 
   return (
     <>
-      <div className="py-20 lg:py-40">
+      <div className="py-10 md:py-20">
         <div className="px-8 pb-8 commonContainer">
           <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
             Join Our Team!

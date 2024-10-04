@@ -1,5 +1,8 @@
 "use client";
+"use client";
 
+import { Boxes } from "../../components/ui/background-boxes";
+import { cn } from "@/lib/utils";
 import React from "react";
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -26,178 +29,176 @@ function FAQPage() {
 
   const scrollToSection = (ref, topic) => {
     ref.current.scrollIntoView({ behavior: "smooth" });
-    setActiveTopic(topic); // Set the clicked topic as active
+    setActiveTopic(topic); 
   };
 
   return (
     <div>
-      <div className="  bg-[rgb(16,29,45)]  py-20 px-10">
-        <div className="commonContainer">
-          <div className="flex justify-between commonContainer ">
-            <div className=" flex flex-col justify-center items-center  gap-4">
-              <h1
-                className={`md:text-5xl text-white text-2xl font-extrabold text-center pb-14 ${playfair.className}`}
-              >
-                We are here to answer all your questions.
-              </h1>
+      <div className="  h-auto  relative w-full    bg-slate-900 flex flex-col items-center justify-center rounded-lg">
+        <div className="  absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
 
-              {/* <div className="flex  gap-2 animate-bounce pt-2">
-              <Button variant="outline">Download Now</Button>
-            </div> */}
-            </div>
-          </div>
-        </div>
-      </div>
+        <Boxes />
+        <div className="commonContainer flex justify-center flex-col items-center py-20 lg:py-40">
+          <h1 className={cn("md:text-4xl text-xl text-white relative z-20 ")}>
+            Frequently Asked Questions
+          </h1>
+          <p className="  text-center mt-2 text-neutral-300 relative z-20 md:w-[50%] pb-10">
+            Have questions? We&apos;ve got answers! Browse through our FAQs to
+            find quick and helpful information about our services, features, and
+            more. If you can&apos;t find what you&apos;re looking for, feel free
+            to reach out to us.
+          </p>
+          <div className="commonContainer bg-black    drop-shadow-2xl shadow-md rounded-lg ">
+            <div className="py-10 px-10 flex justify-between">
+              <div className="w-[20%] border-r-2 border-solid">
+                <ul>
+                  <li
+                    onClick={() => scrollToSection(topic1Ref, "topic-1")}
+                    className={`cursor-pointer py-2 font-bold ${
+                      activeTopic === "topic-1" ? "text-[rgb(33,116,234)] " : ""
+                    }`}
+                  >
+                    Topic 1
+                  </li>
+                  <li
+                    onClick={() => scrollToSection(topic2Ref, "topic-2")}
+                    className={`cursor-pointer py-2 font-bold ${
+                      activeTopic === "topic-2" ? "text-[rgb(33,116,234)] " : ""
+                    }`}
+                  >
+                    Topic 2
+                  </li>
+                  <li
+                    onClick={() => scrollToSection(topic3Ref, "topic-3")}
+                    className={`cursor-pointer py-2 font-bold ${
+                      activeTopic === "topic-3" ? "text-[rgb(33,116,234)] " : ""
+                    }`}
+                  >
+                    Topic 3
+                  </li>
+                </ul>
+              </div>
 
-      <div className="commonContainer bg-white    drop-shadow-2xl shadow-md rounded-lg ">
-        <div className="-mt-20 py-10 px-10 flex justify-between">
-          <div className="w-[20%] border-r-2 border-solid">
-            <ul>
-              <li
-                onClick={() => scrollToSection(topic1Ref, "topic-1")}
-                className={`cursor-pointer py-2 font-bold ${
-                  activeTopic === "topic-1" ? "text-[rgb(33,116,234)] " : ""
-                }`}
-              >
-                Topic 1
-              </li>
-              <li
-                onClick={() => scrollToSection(topic2Ref, "topic-2")}
-                className={`cursor-pointer py-2 font-bold ${
-                  activeTopic === "topic-2" ? "text-[rgb(33,116,234)] " : ""
-                }`}
-              >
-                Topic 2
-              </li>
-              <li
-                onClick={() => scrollToSection(topic3Ref, "topic-3")}
-                className={`cursor-pointer py-2 font-bold ${
-                  activeTopic === "topic-3" ? "text-[rgb(33,116,234)] " : ""
-                }`}
-              >
-                Topic 3
-              </li>
-            </ul>
-          </div>
+              <div className="w-[75%] ">
+                <div
+                  ref={topic1Ref}
+                  id="topic-1"
+                  className="py-10 border-b-4 border-double "
+                >
+                  <h1
+                    className={`text-xl font-bold underline ${
+                      playfair.className
+                    }  ${
+                      activeTopic === "topic-1"
+                        ? "text-[rgb(33,116,234)] font-bold"
+                        : ""
+                    }`}
+                  >
+                    Topic-1
+                  </h1>
 
-          <div className="w-[75%] ">
-            <div
-              ref={topic1Ref}
-              id="topic-1"
-              className="py-10 border-b-4 border-double "
-            >
-              <h1
-                className={`text-xl font-bold underline ${
-                  playfair.className
-                }  ${
-                  activeTopic === "topic-1"
-                    ? "text-[rgb(33,116,234)] font-bold"
-                    : ""
-                }`}
-              >
-                Topic-1
-              </h1>
-
-              <Accordion type="single" collapsible className="w-full">
-                <AccordionItem value="item-1">
-                  <AccordionTrigger>Is it accessible?</AccordionTrigger>
-                  <AccordionContent>
-                    Yes. It adheres to the WAI-ARIA design pattern.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-2">
-                  <AccordionTrigger>Is it styled?</AccordionTrigger>
-                  <AccordionContent>
-                    Yes. It comes with default styles that matches the other
-                    components&apos; aesthetic.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-3">
-                  <AccordionTrigger>Is it animated?</AccordionTrigger>
-                  <AccordionContent>
-                    Yes. It&apos;s animated by default, but you can disable it
-                    if you prefer.
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            </div>
-            <div
-              ref={topic2Ref}
-              id="topic-2"
-              className="py-10 border-b-4 border-double"
-            >
-              <h1
-                className={`text-xl font-bold underline ${
-                  playfair.className
-                }  ${
-                  activeTopic === "topic-2"
-                    ? "text-[rgb(33,116,234)] font-bold"
-                    : ""
-                }`}
-              >
-                Topic-2
-              </h1>
-              <Accordion type="single" collapsible className="w-full">
-                <AccordionItem value="item-1">
-                  <AccordionTrigger>Is it accessible?</AccordionTrigger>
-                  <AccordionContent>
-                    Yes. It adheres to the WAI-ARIA design pattern.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-2">
-                  <AccordionTrigger>Is it styled?</AccordionTrigger>
-                  <AccordionContent>
-                    Yes. It comes with default styles that matches the other
-                    components&apos; aesthetic.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-3">
-                  <AccordionTrigger>Is it animated?</AccordionTrigger>
-                  <AccordionContent>
-                    Yes. It&apos;s animated by default, but you can disable it
-                    if you prefer.
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            </div>
-            <div
-              ref={topic3Ref}
-              id="topic-3"
-              className="py-10 border-b-4 border-double"
-            >
-              <h1
-                className={`text-xl font-bold underline ${
-                  playfair.className
-                }  ${
-                  activeTopic === "topic-3"
-                    ? "text-[rgb(33,116,234)] font-bold"
-                    : ""
-                }`}
-              >
-                Topic-3
-              </h1>
-              <Accordion type="single" collapsible className="w-full">
-                <AccordionItem value="item-1">
-                  <AccordionTrigger>Is it accessible?</AccordionTrigger>
-                  <AccordionContent>
-                    Yes. It adheres to the WAI-ARIA design pattern.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-2">
-                  <AccordionTrigger>Is it styled?</AccordionTrigger>
-                  <AccordionContent>
-                    Yes. It comes with default styles that matches the other
-                    components&apos; aesthetic.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-3">
-                  <AccordionTrigger>Is it animated?</AccordionTrigger>
-                  <AccordionContent>
-                    Yes. It&apos;s animated by default, but you can disable it
-                    if you prefer.
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
+                  <Accordion type="single" collapsible className="w-full">
+                    <AccordionItem value="item-1">
+                      <AccordionTrigger>Is it accessible?</AccordionTrigger>
+                      <AccordionContent>
+                        Yes. It adheres to the WAI-ARIA design pattern.
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-2">
+                      <AccordionTrigger>Is it styled?</AccordionTrigger>
+                      <AccordionContent>
+                        Yes. It comes with default styles that matches the other
+                        components&apos; aesthetic.
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-3">
+                      <AccordionTrigger>Is it animated?</AccordionTrigger>
+                      <AccordionContent>
+                        Yes. It&apos;s animated by default, but you can disable
+                        it if you prefer.
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                </div>
+                <div
+                  ref={topic2Ref}
+                  id="topic-2"
+                  className="py-10 border-b-4 border-double"
+                >
+                  <h1
+                    className={`text-xl font-bold underline ${
+                      playfair.className
+                    }  ${
+                      activeTopic === "topic-2"
+                        ? "text-[rgb(33,116,234)] font-bold"
+                        : ""
+                    }`}
+                  >
+                    Topic-2
+                  </h1>
+                  <Accordion type="single" collapsible className="w-full">
+                    <AccordionItem value="item-1">
+                      <AccordionTrigger>Is it accessible?</AccordionTrigger>
+                      <AccordionContent>
+                        Yes. It adheres to the WAI-ARIA design pattern.
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-2">
+                      <AccordionTrigger>Is it styled?</AccordionTrigger>
+                      <AccordionContent>
+                        Yes. It comes with default styles that matches the other
+                        components&apos; aesthetic.
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-3">
+                      <AccordionTrigger>Is it animated?</AccordionTrigger>
+                      <AccordionContent>
+                        Yes. It&apos;s animated by default, but you can disable
+                        it if you prefer.
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                </div>
+                <div
+                  ref={topic3Ref}
+                  id="topic-3"
+                  className="py-10 border-b-4 border-double"
+                >
+                  <h1
+                    className={`text-xl font-bold underline ${
+                      playfair.className
+                    }  ${
+                      activeTopic === "topic-3"
+                        ? "text-[rgb(33,116,234)] font-bold"
+                        : ""
+                    }`}
+                  >
+                    Topic-3
+                  </h1>
+                  <Accordion type="single" collapsible className="w-full">
+                    <AccordionItem value="item-1">
+                      <AccordionTrigger>Is it accessible?</AccordionTrigger>
+                      <AccordionContent>
+                        Yes. It adheres to the WAI-ARIA design pattern.
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-2">
+                      <AccordionTrigger>Is it styled?</AccordionTrigger>
+                      <AccordionContent>
+                        Yes. It comes with default styles that matches the other
+                        components&apos; aesthetic.
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-3">
+                      <AccordionTrigger>Is it animated?</AccordionTrigger>
+                      <AccordionContent>
+                        Yes. It&apos;s animated by default, but you can disable
+                        it if you prefer.
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                </div>
+              </div>
             </div>
           </div>
         </div>

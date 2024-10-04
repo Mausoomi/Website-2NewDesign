@@ -1,138 +1,91 @@
 "use client";
-
-import React, { useState } from "react";
-import podcastImg from "../../../public/potCast.jpg";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import Image from "next/image";
-import { Card, CardContent } from "@/components/ui/card";
-import { GiSoundWaves } from "react-icons/gi";
-import { Button } from "@/components/ui/button";
-import { MdOutlinePlayCircleOutline } from "react-icons/md";
-import { Playfair_Display } from "next/font/google";
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["700"],
-});
+import React from "react";
+import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 
-function Podcast() {
-  const [currentIndex, setCurrentIndex] = useState(1);
-  const PodcastData = [
-    {
-      title: "1By the future",
-      image: podcastImg,
-      by: "1 name",
-    },
-    {
-      title: "2By the future",
-      image: podcastImg,
-      by: "2 name",
-    },
-    {
-      title: "3 By the future",
-      image: podcastImg,
-      by: "3 name",
-    },
-    {
-      title: "4 By the future",
-      image: podcastImg,
-      by: "4 name",
-    },
-    {
-      title: "5 By the future",
-      image: podcastImg,
-      by: "5 name",
-    },
-    {
-      title: "6 By the future",
-      image: podcastImg,
-      by: "6 name",
-    },
-    {
-      title: "7 By the future",
-      image: podcastImg,
-      by: "7 name",
-    },
-  ];
-   console.log(currentIndex)
+ function Podcast() {
+  const cards = data.map((card, index) => (
+    <Card key={card.src} card={card} index={index} />
+  ));
 
   return (
-    <>
-      <div>
-        <div>
-          <div className="flex flex-col md:flex-row justify-center md:justify-between md:gap-0 gap-4 items-center py-10">
-            <div className="md:w-[40%] w-[100%]">
-              <Image
-                src={PodcastData[currentIndex].image}
-                alt="media banner"
-                className=" rounded-2xl"
-              />
-            </div>
-            <div className="md:w-[50%] w-[100%] flex flex-col gap-4 ">
-              <h1
-                className={`md:text-4xl text-[rgb(16,29,45)] text-2xl font-extrabold ${playfair.className}`}
-              >
-                {PodcastData[currentIndex].title}
-              </h1>
-              <p className="text-[rgb(98,108,120)] text-sm">
-                Our landing page template works on all devices, so you only have
-                to set it up once, and get beautiful results forever.
-              </p>
-              <div className="flex  gap-2">
-                <Button
-                  variant="outline"
-                  className="flex gap-2 animate-bounce transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500  border-0"
-                >
-                  <p> Listen Now</p> <MdOutlinePlayCircleOutline />
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="flex justify-center bg-yellow py-10 rounded-lg  bg-[rgb(250,241,123,0.25)] mb-10">
-        <Carousel className="md:w-[90%] w-[80%]  flex justify-center">
-          <CarouselContent className=" flex justify-center ">
-            {PodcastData.map((item, index) => (
-              <CarouselItem key={index} className="md:basis-2/6 basis-full   ">
-                <div className="p-1" onClick={() => setCurrentIndex(index)}>
-                  <Card>
-                    <div>
-                      <Image
-                        src={item.image}
-                        alt="blogImage"
-                        className="rounded-t-lg "
-                      />
-                    </div>
-                    <CardContent className="flex p-2 ">
-                      <p className="font-medium  text-sm flex items-center gap-2 ">
-                        <snap className=" text-[39px]">
-                          <GiSoundWaves />
-                        </snap>
-                        <snap>By-{item.by}</snap>
-                      </p>
-                    </CardContent>
-                    <CardContent className="flex p-0">
-                      <span className="md:text-2xl font-semibold text-xl pb-4 pl-2 ">
-                        {item.title}
-                      </span>
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
-      </div>
-    </>
+    <div className="w-full h-full py-20">
+     
+      <Carousel items={cards} />
+    </div>
   );
 }
 
 export default Podcast;
+  
+const DummyContent = () => {
+  return (
+    <>
+      {[...new Array(3).fill(1)].map((_, index) => {
+        return (
+          <div
+            key={"dummy-content" + index}
+            className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
+          >
+            <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+              <span className="font-bold text-neutral-700 dark:text-neutral-200">
+                The first rule of Apple club is that you boast about Apple club.
+              </span>{" "}
+              Keep a journal, quickly jot down a grocery list, and take amazing
+              class notes. Want to convert those notes to text? No problem.
+              Langotiya jeetu ka mara hua yaar is ready to capture every
+              thought.
+            </p>
+            <Image
+              src="https://assets.aceternity.com/macbook.png"
+              alt="Macbook mockup from Aceternity UI"
+              height="500"
+              width="500"
+              className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+            />
+          </div>
+        );
+      })}
+    </>
+  );
+};
+
+const data = [
+  {
+    category: "Artificial Intelligence",
+    title: "You can do more with AI.",
+    src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    content: <DummyContent />,
+  },
+  {
+    category: "Productivity",
+    title: "Enhance your productivity.",
+    src: "https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    content: <DummyContent />,
+  },
+  {
+    category: "Product",
+    title: "Launching the new Apple Vision Pro.",
+    src: "https://images.unsplash.com/photo-1713869791518-a770879e60dc?q=80&w=2333&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    content: <DummyContent />,
+  },
+
+  {
+    category: "Product",
+    title: "Maps for your iPhone 15 Pro Max.",
+    src: "https://images.unsplash.com/photo-1599202860130-f600f4948364?q=80&w=2515&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    content: <DummyContent />,
+  },
+  {
+    category: "iOS",
+    title: "Photography just got better.",
+    src: "https://images.unsplash.com/photo-1602081957921-9137a5d6eaee?q=80&w=2793&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    content: <DummyContent />,
+  },
+  {
+    category: "Hiring",
+    title: "Hiring for a Staff Software Engineer",
+    src: "https://images.unsplash.com/photo-1511984804822-e16ba72f5848?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    content: <DummyContent />,
+  },
+];

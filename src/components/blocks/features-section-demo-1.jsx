@@ -1,9 +1,8 @@
+"use client"
 import React from "react";
 import { useId } from "react";
 import { BackgroundBeams } from "../ui/background-beams";
-
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
 
@@ -31,8 +30,8 @@ export default function FeaturesSectionDemo() {
 
   return (
     <div className=" box-2  h-auto w-full rounded-md bg-[#262626] relative flex flex-col items-center justify-center antialiased">
-      <div className="px-8 commonContainer pt-20 lg:pt-40">
-        <h4 className=" FeaturesHd text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
+      <div className="md:px-8 commonContainer pt-20 lg:pt-40">
+        <h4 className=" FeaturesHd text-3xl lg:text-5xl lg:leading-tight md:max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
           Packed with thousands of features
         </h4>
 
@@ -42,7 +41,7 @@ export default function FeaturesSectionDemo() {
         </p>
       </div>
 
-      <div className="py-20 lg:py-40 commonContainer">
+      <div className="py-10 md:py-20 commonContainer">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 md:gap-2 max-w-7xl mx-auto">
           {grid.map((feature) => (
             <div

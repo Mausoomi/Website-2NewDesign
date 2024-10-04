@@ -2,7 +2,12 @@
 
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
-import React from "react";
+import React, { useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 const people = [
   {
     id: 1,
@@ -49,14 +54,34 @@ const people = [
 ];
 
 export function Testimonials() {
+    useGSAP(() => {
+      var tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".boxTest", // Element that triggers the animation
+          start: "top 80%", // Trigger when the top of .box-1 is 75% from the top of the viewport
+          end: "bottom 25%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      tl.from(".TestHd", {
+        y: -30,
+        duration: 1,
+        opacity: 0,
+        delay: 0.5,
+        scale: 0.2,
+      });
+      tl.from(".paraTest", { x: -50, duration: 1, opacity: 0, delay: 0.5 });
+    });
+
   return (
-    <div className=" py-20 lg:py-40 h-auto rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
-      <div className="px-8 pb-8 commonContainer">
-        <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
+    <div className="boxTest py-20 lg:py-40 h-auto rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+      <div className="md:px-8 pb-8 commonContainer">
+        <h4 className=" TestHd text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
           Loved by people all over the universe
         </h4>
 
-        <p className="text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
+        <p className="paraTest text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
           Every AI is used by millions of people around the globe.Our APIs have
           fan bases and people fight for us over twitter.
         </p>

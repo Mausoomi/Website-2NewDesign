@@ -1,9 +1,13 @@
 "use client";
 import React, { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "../components/ui/navbar-menu";
+import {
+  HoveredLink,
+  Menu,
+  MenuItem,
+  ProductItem,
+} from "../components/ui/navbar-menu";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-
 
 export function NavbarDemo() {
   return (
@@ -18,15 +22,23 @@ export function NavbarDemo() {
 
 function Navbar({ className }) {
   const [active, setActive] = useState(null);
-    const navItem = [
-      { item: "Home", Link: "/" },
-      // { item: "About us", Link: "/AboutUs" },
-      { item: "Careers", Link: "/Careers" },
-      { item: "Media", Link: "/Media" },
-      { item: "Downloads", Link: "/Downloads" },
-      { item: "FAQ", Link: "/FaqPage" },
-      { item: "Events", Link: "/EventsPage" },
-    ];
+  const navItem = [
+    { item: "Home", Link: "/" },
+    // { item: "About us", Link: "/AboutUs" },
+    { item: "Careers", Link: "/Careers" },
+    {
+      item: "Media",
+      Link: "/Media",
+      // subItem: [
+      //   { subNav: "Blog", SubLink: "/Media/Blog" },
+      //   { subNav: "Vlog", SubLink: "/Media/Vlog" },
+      //   { subNav: "News", SubLink: "/Media/News" },
+      // ],
+    },
+    { item: "Downloads", Link: "/Downloads" },
+    { item: "FAQ", Link: "/FaqPage" },
+    { item: "Events", Link: "/EventsPage" },
+  ];
   return (
     <div
       className={cn("fixed top-10 inset-x-0 max-w-3xl mx-auto z-50", className)}
@@ -36,11 +48,17 @@ function Navbar({ className }) {
         {navItem.map((item, index) => (
           <div key={index}>
             <Link href={item.Link}>
-              <MenuItem
-                setActive={setActive}
-                active={active}
-                item={item.item}
-              ></MenuItem>
+              <MenuItem setActive={setActive} active={active} item={item.item}>
+                {item.subItem && (
+                  <div className="flex flex-col space-y-4 text-sm">
+                    {item.subItem.map((Sub, index) => (
+                      <HoveredLink href={Sub.SubLink} key={index}>
+                        {Sub.subNav}
+                      </HoveredLink>
+                    ))}
+                  </div>
+                )}
+              </MenuItem>
             </Link>
           </div>
         ))}

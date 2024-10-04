@@ -8,7 +8,7 @@ function Careers() {
     <>
      
         <HeroHighlight>
-           <div className="py-20 lg:py-40">
+           <div className="py-10 md:pt-40 md:pb-20 ">
           <motion.h1
             initial={{
               opacity: 0,
