@@ -9,7 +9,7 @@ import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
   ));
 
   return (
-    <div className="w-full h-full py-20">
+    <div className="w-full h-[80rem] ">
      
       <Carousel items={cards} />
     </div>

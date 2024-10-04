@@ -121,7 +121,7 @@ export function Media() {
           </div>
         </div> */}
 
-        <div className=" [perspective:1000px] relative b flex flex-col max-w-5xl mx-auto w-full  items-start justify-start my-40">
+        <div className=" [perspective:1000px] relative b flex flex-col max-w-5xl mx-auto w-full  items-start justify-start md:mt-40 mt-20 mb-4">
           <Tabs tabs={tabs} />
         </div>
         {/* <div className="commonContainer bg-[#F1B1ED] rounded-2xl p-8   marginT">
