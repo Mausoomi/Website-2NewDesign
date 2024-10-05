@@ -20,6 +20,7 @@ import { Input } from "@/components/ui/input";
 
 import Image from "next/image";
 import { useRef, useState } from "react";
+import { Boxes } from "@/components/ui/background-boxes";
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["700"],
@@ -71,7 +72,7 @@ function Downloads() {
     <div className="  h-auto  relative w-full overflow-hidden    bg-slate-900 flex flex-col items-center justify-center rounded-lg">
       <div className="  absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
 
-      <Boxes />
+      <Boxes/>
       <div className="commonContainer">
         <div className="  bg-[rgb(16,29,45)]  rounded-b-[40px] md:pb-20 pb-4 md:pt-44 pt-20 md:px-10 px-6">
           <div className="flex justify-between lg:flex-row flex-col sm:gap-4 items-center ">
