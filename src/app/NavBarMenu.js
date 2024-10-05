@@ -38,6 +38,7 @@ function Navbar({ className }) {
     { item: "Downloads", Link: "/Downloads" },
     { item: "FAQ", Link: "/FaqPage" },
     { item: "Events", Link: "/EventsPage" },
+    { item: "Wall of Love" ,Link:"/WallOfLove" },
   ];
   return (
     <div

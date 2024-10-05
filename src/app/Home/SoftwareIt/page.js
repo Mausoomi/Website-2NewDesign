@@ -1,58 +1,64 @@
+"use client";
+
+import { motion } from "framer-motion";
 import React from "react";
-import { Playfair_Display } from "next/font/google";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import topBanner from "../../../../public/councelting.jpg";
 import Expertise from "./Expertise";
 import BussinessBenefit from "./BussinessBenefit";
 import Projects from "./Projects";
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["700"],
-});
+import { AuroraBackground } from "@/components/ui/aurora-background";
 
 function SoftwareIt() {
   return (
     <div>
-      <div className="commonContainer md:py-20 py-10">
-        <div className="flex flex-col md:flex-row justify-center md:justify-between md:gap-0 gap-4">
-          <div className="md:w-[50%] w-[100%] flex flex-col gap-4 md:gap-8">
-            <h1
-              className={`md:text-5xl text-[rgb(16,29,45)] text-xl font-extrabold ${playfair.className}`}
-            >
-              Software Development & IT Solutions
-            </h1>
-            <p className="text-[rgb(148,163,184)] md:text-2xl text-sm">
-              Our landing page template works on all devices, so you only have
-              to set it up once, and get beautiful results forever.
-            </p>
-            <div className="flex  gap-4 flex-wrap ">
-              <Button className="transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300  ">
-                Schedule a Demo
-              </Button>
-              <Button className="transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300  ">
-                Request a Quote
-              </Button>
-            </div>
+      <AuroraBackground>
+        <motion.div
+          initial={{ opacity: 0.0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.3,
+            duration: 0.8,
+            ease: "easeInOut",
+          }}
+          className="relative flex flex-col gap-4 items-center justify-center px-4"
+        >
+          <div className="text-3xl md:text-5xl font-bold dark:text-white text-center">
+            Tailored Software Solutions for Your Business
           </div>
+          <div className="font-extralight text-base md:text-2xl dark:text-neutral-200 py-4 w-full md:w-[60%] text-center ">
+            We build custom software tailored to your business needs, optimizing
+            operations and supporting your unique goals to drive success!
+          </div>
+          <div className="flex md:flex-row flex-col items-center gap-4 ">
+            <button className="bg-black dark:bg-white rounded-full w-fit text-white dark:text-black px-4 py-2">
+              Schedule a Demo
+            </button>
+            <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-full border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+              Request a Quote
+            </button>
+          </div>
+        </motion.div>
+      </AuroraBackground>
 
-          <div className="md:w-[40%] w-[100%]">
-            <Image src={topBanner} alt="businessImage" />
-          </div>
+      <section className="md:py-20 py-10">
+        <div className="md:px-8 pb-8 commonContainer">
+          <h4 className=" TestHd text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
+            Our Expertise
+          </h4>
+
+          <p className="paraTest text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
+            Every AI is used by millions of people around the globe.Our APIs
+            have fan bases and people fight for us over twitter.
+          </p>
         </div>
-      </div>
-
-      <section className=" bg-[rgb(147,197,253,0.34)]">
         <Expertise />
       </section>
 
-      <section>
-        <BussinessBenefit/>
-      </section>
+      {/* <section>
+        <BussinessBenefit />
+      </section> */}
 
       <section>
-        <Projects/>
+        <Projects />
       </section>
     </div>
   );

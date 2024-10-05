@@ -1,54 +1,42 @@
+"use client"
 import React from "react";
-import { Playfair_Display } from "next/font/google";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import topBanner from "../../../../public/councelting.jpg";
 import CaseStudy from "./CaseStudy";
 import Benefit from "./Benefit";
-
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["700"],
-});
+import TopSection from "./TopSection";
+import { useRouter } from "next/navigation";
 
 function ConsultingResearch() {
+  const router = useRouter();
   return (
     <div>
-      <div className="commonContainer md:py-20 py-10">
-        <div className="flex flex-col md:flex-row justify-center md:justify-between md:gap-0 gap-4">
-          <div className="md:w-[50%] w-[100%] flex flex-col gap-4 md:gap-8">
-            <h1
-              className={`md:text-7xl text-[rgb(16,29,45)] text-2xl font-extrabold ${playfair.className}`}
-            >
-              Consulting & Research
-            </h1>
-            <p className="text-[rgb(148,163,184)] md:text-2xl text-sm">
-              Our landing page template works on all devices, so you only have
-              to set it up once, and get beautiful results forever.
-            </p>
-            <div className="flex  gap-4 flex-wrap ">
-              <Button className="transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300  ">
-                Request a Consultation
-              </Button>
-              <Button className="transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300  ">
-                Download Our Whitepaper
-              </Button>
-            </div>
-          </div>
+      <TopSection />
 
-          <div className="md:w-[40%] w-[100%]">
-            <Image src={topBanner} alt="businessImage" />
-          </div>
-        </div>
-      </div>
-
-      <section className="caseStudy bg-[rgb(205,196,255,0.33)]">
+      <section>
         <CaseStudy />
       </section>
 
-      <section className="Benefits ">
+      <section className="Benefits py-20 lg:py-40 h-auto rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden ">
+        <div className="md:px-8 pb-8 commonContainer">
+          <h4 className=" TestHd text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
+            Driving Social Impact for Governments
+          </h4>
+
+          <p className="paraTest text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
+            We empower governments to drive social impact through data-driven
+            strategies. Our solutions enhance service delivery, optimize
+            resources, and address community needs for sustainable growth.
+          </p>
+        </div>
         <Benefit />
+        <button className="p-[3px] relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
+          <div
+            className="px-8 py-2  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent "
+            onClick={() => router.push("/Downloads")}
+          >
+            Download Our Whitepaper
+          </div>
+        </button>
       </section>
     </div>
   );

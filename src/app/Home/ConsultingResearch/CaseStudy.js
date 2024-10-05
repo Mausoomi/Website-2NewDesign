@@ -1,72 +1,63 @@
+
+
+"use client";
 import React from "react";
-import caseImg from "../../../../public/teamwork.jpg";
-
-import { Playfair_Display } from "next/font/google";
 import Image from "next/image";
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["700"],
-});
+import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
 
-function CaseStudy() {
-  const caseStudiesData = [
-    {
-      title: "Consulting & Research",
-      para: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
-      image: caseImg,
-      link: "",
-    },
-    {
-      title: "Consulting & Research",
-      para: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
-      image: caseImg,
-      link: "",
-    },
-    {
-      title: "Consulting & Research",
-      para: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
-      image: caseImg,
-      link: "",
-    },
-  ];
-
-  return (
-    <div className="md:py-20 py-10  commonContainer">
-      <h1
-        className={`md:text-7xl text-[rgb(16,29,45)] text-2xl font-extrabold text-center underline pb-10 ${playfair.className}`}
-      >
-        Case Studies
-      </h1>
-      <div className="flex gap-10 flex-col">
-        {caseStudiesData.map((item, index) => (
-          <div
-            key={index}
-            className={` flex gap-10 ${
-              index % 2 === 0 ? " justify-end" : " justify-start"
-            }`}
-          >
-            <div
-              className={`flex md:w-[60%] w-[100%] md:flex-row flex-col  justify-between bg-white  drop-shadow-2xl shadow-md rounded-lg  p-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300 `}
-            >
-              <div className=" md:w-[60%] w-full flex gap-4 flex-col items-start">
-                <h1
-                  className={`md:text-2xl text-[rgb(16,29,45)] text-lg font-extrabold ${playfair.className}`}
-                >
-                  {item.title}
-                </h1>
-                <p className=" text-justify text-[rgb(148,163,184)]">
-                  {item.para}
-                </p>
-              </div>
-              <div className="md:w-[35%] w-full h-full">
-                <Image src={caseImg} alt="caseImage" />
-              </div>
-            </div>
-          </div>
-        ))}
+const content = [
+  {
+    title: "Collaborative Editing",
+    description:
+      "Work together in real time with your team, clients, and stakeholders. Collaborate on documents, share ideas, and make decisions quickly. With our platform, you can streamline your workflow and increase productivity.",
+    content: (
+      <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
+        Collaborative Editing
       </div>
+    ),
+  },
+  {
+    title: "Real time changes",
+    description:
+      "See changes as they happen. With our platform, you can track every modification in real time. No more confusion about the latest version of your project. Say goodbye to the chaos of version control and embrace the simplicity of real-time updates.",
+    content: (
+      <div className="h-full w-full  flex items-center justify-center text-white">
+        <Image
+          src="/linear.webp"
+          width={300}
+          height={300}
+          className="h-full w-full object-cover"
+          alt="linear board demo"
+        />
+      </div>
+    ),
+  },
+  {
+    title: "Version control",
+    description:
+      "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+    content: (
+      <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white">
+        Version control
+      </div>
+    ),
+  },
+  {
+    title: "Running out of content",
+    description:
+      "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+    content: (
+      <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
+        Running out of content
+      </div>
+    ),
+  },
+];
+function CaseStudy() {
+  return (
+    <div className="p-10">
+      <StickyScroll content={content} />
     </div>
   );
 }
-
 export default CaseStudy;
