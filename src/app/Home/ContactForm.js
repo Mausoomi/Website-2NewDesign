@@ -50,7 +50,7 @@ function ContactForm() {
         {/* Radial gradient for the container to give a faded look */}
         <div className=" absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_50%,black)]"></div>
 
-        <div className="commonContainer flex md:flex-row flex-col justify-between items-center">
+        <div className="commonContainer flex md:flex-row flex-col-reverse justify-between items-center">
           <div className=" paraContact max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
             <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
               Contact Us

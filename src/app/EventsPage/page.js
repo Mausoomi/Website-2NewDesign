@@ -9,7 +9,7 @@ import Events from "./Events";
 export function EventsPage() {
   return (
     <>
-      <div className="w-full mx-auto rounded-md  h-[30rem] overflow-hidden">
+      <div className="w-full mx-auto rounded-md  h-auto md:py-28 py-10 overflow-hidden">
         <Vortex
           backgroundColor="black"
           className="flex  flex-col justify-center px-2 md:px-10 py-4 w-full h-full"

@@ -13,25 +13,39 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { NavbarDemo } from "@/app/NavBarMenu";
+import {
+  HoveredLink,
+  Menu,
+  MenuItem,
+  ProductItem,
+} from "../components/ui/navbar-menu";
 
 function NavBar() {
+  const [active, setActive] = useState(null);
   const [showSideBar, setShowSideBar] = useState(false);
   const pathname = usePathname();
   console.log(pathname);
 
   const navItem = [
     { item: "Home", Link: "/" },
-    { item: "About us", Link: "/AboutUs" },
+    // { item: "About us", Link: "/AboutUs" },
     { item: "Careers", Link: "/Careers" },
-    { item: "Media", Link: "/Media" },
+    {
+      item: "Media",
+      Link: "/Media",
+      // subItem: [
+      //   { subNav: "Blog", SubLink: "/Media/Blog" },
+      //   { subNav: "Vlog", SubLink: "/Media/Vlog" },
+      //   { subNav: "News", SubLink: "/Media/News" },
+      // ],
+    },
     { item: "Downloads", Link: "/Downloads" },
     { item: "FAQ", Link: "/FaqPage" },
     { item: "Events", Link: "/EventsPage" },
+    { item: "Wall of Love", Link: "/WallOfLove" },
   ];
-
+  console.log(navItem);
   gsap.registerPlugin(useGSAP);
-
-
 
   useGSAP(() => {
     var tl = gsap.timeline();
@@ -43,21 +57,21 @@ function NavBar() {
 
       stagger: 0.3,
     });
-     gsap.from(".signInBtn", {
-       y: -50,
-       duration: 1,
-       opacity: 0,
-     });
-
+    gsap.from(".signInBtn", {
+      y: -50,
+      duration: 1,
+      opacity: 0,
+    });
   });
   return (
     <>
       <div
         className={` relative md:block hidden shadow-lg shadow-black-500/50 bg-[rgb(16,29,45)]   `}
       >
-        <NavbarDemo />
+        <NavbarDemo navItem={navItem} />
       </div>
 
+      {/* Phone View NabBar */}
       <div className="md:hidden flex justify-between items-start  py-2 px-4 ">
         <div className=" relative">
           <IoReorderThreeOutline
@@ -104,6 +118,37 @@ function NavBar() {
             Sign in
           </button>
         </div>
+        {/* <div className="fixed top-10 inset-x-0 max-w-3xl mx-auto z-50 ">
+          <Menu setActive={setActive}>
+            <div className="px-4">LOGO</div>
+            {navItem?.map((item, index) => (
+              <div key={index}>
+                <Link href={item.Link}>
+                  <MenuItem
+                    setActive={setActive}
+                    active={active}
+                    item={item.item}
+                  >
+                    {item.subItem && (
+                      <div className="flex flex-col space-y-4 text-sm">
+                        {item.subItem.map((Sub, index) => (
+                          <HoveredLink href={Sub.SubLink} key={index}>
+                            {Sub.subNav}
+                          </HoveredLink>
+                        ))}
+                      </div>
+                    )}
+                  </MenuItem>
+                </Link>
+              </div>
+            ))}
+            <div className="px-4">
+              <button className="bg-[rgb(33,116,234)]  border-gray-800 rounded px-4 py-1 text-white text-[12px]">
+                Sign in
+              </button>
+            </div>
+          </Menu>
+        </div> */}
       </div>
     </>
   );

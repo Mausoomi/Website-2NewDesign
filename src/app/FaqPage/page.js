@@ -37,7 +37,7 @@ function FAQPage() {
       <div className="  h-auto  relative w-full overflow-hidden    bg-slate-900 flex flex-col items-center justify-center rounded-lg">
         <div className="  absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
 
-        <Boxes />
+        <Boxes faq={true} />
         <div className="commonContainer flex justify-center flex-col items-center py-20 lg:py-40">
           <h1 className={cn("md:text-4xl text-xl text-white relative z-20 ")}>
             Frequently Asked Questions
@@ -48,10 +48,10 @@ function FAQPage() {
             more. If you can&apos;t find what you&apos;re looking for, feel free
             to reach out to us.
           </p>
-          <div className="commonContainer bg-black    drop-shadow-2xl shadow-md rounded-lg ">
-            <div className="py-10 px-10 flex justify-between">
-              <div className="w-[20%] border-r-2 border-solid">
-                <ul>
+          <div className="md:w-[80%] w-full bg-black    drop-shadow-2xl shadow-md rounded-lg ">
+            <div className="py-10 px-10 flex justify-between md:flex-row flex-col ">
+              <div className="md:w-[20%] w-full md:border-r-2 border-solid border-b-2  ">
+                <ul className="flex flex-row  md:flex-col justify-between">
                   <li
                     onClick={() => scrollToSection(topic1Ref, "topic-1")}
                     className={`cursor-pointer py-2 font-bold ${
@@ -79,7 +79,7 @@ function FAQPage() {
                 </ul>
               </div>
 
-              <div className="w-[75%] ">
+              <div className="md:w-[75%] w-full ">
                 <div
                   ref={topic1Ref}
                   id="topic-1"
